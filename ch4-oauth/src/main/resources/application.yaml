@@ -1,5 +1,5 @@
-#spring.security.oauth2.client.registration.google.clientId=82223007744-ug5i04cjrs234n9lchusflspatb44jtu.apps.googleusercontent.com
-#spring.security.oauth2.client.registration.google.client-secret=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
+#spring.security.oauth2.client.registration.google.clientId=___.apps.googleusercontent.com
+#spring.security.oauth2.client.registration.google.client-secret=___
 #spring.security.oauth2.client.registration.google.scope=openid,profile,email,https://www.googleapis.com/auth/youtube
 #
 #com.springbootlearning.danvega=UCc98QQw1D-y38wg6mO3w4MQ
@@ -17,8 +17,8 @@ spring:
       client:
         registration:
           google:
-            clientId: **your client id**
-            clientSecret: **your client secret**
+            clientId: your_client_id
+            clientSecret: your_client_secret
             scope: openid,profile,email,https://www.googleapis.com/auth/youtube
 
 logging:

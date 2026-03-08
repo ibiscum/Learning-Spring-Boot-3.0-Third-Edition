@@ -26,5 +26,4 @@ public class TestSecurity {
         .build());
     return userDetailsManager;
   }
-
 }

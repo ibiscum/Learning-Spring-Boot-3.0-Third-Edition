@@ -20,7 +20,7 @@ This book covers the following exciting features:
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1803233303) today!
 
-<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png"
 alt="https://www.packtpub.com/" border="5" /></a>
 
 ## Instructions and Navigations
@@ -62,7 +62,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Full Stack Development with Spring Boot and React - Third Edition [[Packt]](https://www.packtpub.com/product/full-stack-development-with-spring-boot-and-react-third-edition/9781801816786?utm_source=github&utm_medium=repository&utm_campaign=9781801816786) [[Amazon]](https://www.amazon.com/dp/1801816786)
 
-## Errata 
+## Errata
 * Page 65, Note box:  **!!putting the wildcard at the beginning!!** _should be_ **!!putting the wildcard at the END!!**
 * Page 65, Note box:  **EndsWith puts the wildcard at the end** _should be_ **EndsWith puts the wildcard at the beginning**
 * In Chapter 4, under the section "Invoking an OAuth2 API remotely," there is a missing code snippet after the provided snippet on pages 108-109.
@@ -153,7 +153,8 @@ He completed his master's degree in computer engineering at Auburn University an
 
 Be sure to check out his YouTube channel, [Pro Coder](https://youtube.com/@ProCoderIO), where you learn to become a savvy pro!
 
-### Download a free PDF
+## Prerequisites
 
- <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
-<p align="center"> <a href="https://packt.link/free-ebook/9781803233307">https://packt.link/free-ebook/9781803233307 </a> </p>
+### Maven
+
+  ./mvnw -N wrapper:wrapper -Dmaven=3.9.12

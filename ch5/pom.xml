@@ -64,6 +64,13 @@
 			<artifactId>postgresql</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/org.apache.commons/commons-compress -->
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-compress</artifactId>
+    		<version>1.26.0</version>
+    		<scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>

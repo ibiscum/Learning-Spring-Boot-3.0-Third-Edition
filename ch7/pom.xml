@@ -15,7 +15,7 @@
 	<description>Releasing an Application with Spring Boot</description>
 	<properties>
 		<java.version>25</java.version>
-		<testcontainers.version>1.17.6</testcontainers.version>
+		<testcontainers.version>1.21.4</testcontainers.version>
 	</properties>
 	<dependencies>
 		<dependency>

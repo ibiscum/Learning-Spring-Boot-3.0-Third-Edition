@@ -64,6 +64,7 @@
             </goals>
           </execution>
           <execution>
+            <?m2e execute onConfiguration,onIncremental?>
             <id>npx run</id>
             <goals>
               <goal>npx</goal>

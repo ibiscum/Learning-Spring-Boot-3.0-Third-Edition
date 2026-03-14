@@ -3,10 +3,10 @@ import ListOfVideos from './ListOfVideos'
 import NewVideo from "./NewVideo"
 
 export function App() {
-    return (
-        <div>
-            <ListOfVideos/>
-            <NewVideo/>
-        </div>
-    )
+  return (
+    <div>
+      <ListOfVideos />
+      <NewVideo />
+    </div>
+  )
 }

@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApiController {
 
-  private final VideoService videoService;
+    private final VideoService videoService;
 
-  public ApiController(VideoService videoService) {
-    this.videoService = videoService;
-  }
+    public ApiController(VideoService videoService) {
+        this.videoService = videoService;
+    }
 
-  @GetMapping("/api/videos")
-  public List<Video> all() {
-    return videoService.getVideos();
-  }
+    @GetMapping("/api/videos")
+    public List<Video> all() {
+        return videoService.getVideos();
+    }
 
-  @PostMapping("/api/videos")
-  public Video newVideo(@RequestBody Video newVideo) {
-    return videoService.create(newVideo);
-  }
+    @PostMapping("/api/videos")
+    public Video newVideo(@RequestBody Video newVideo) {
+        return videoService.create(newVideo);
+    }
 }

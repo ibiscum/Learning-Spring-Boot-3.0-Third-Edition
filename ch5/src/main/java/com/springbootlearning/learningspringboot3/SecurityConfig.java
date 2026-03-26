@@ -13,28 +13,28 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-  @Bean
-  CommandLineRunner initUsers(UserManagementRepository repository) {
-    return args -> {
-      repository.save(new UserAccount("alice", "password", "ROLE_USER"));
-      repository.save(new UserAccount("bob", "password", "ROLE_USER"));
-      repository.save(new UserAccount("admin", "password", "ROLE_ADMIN"));
-    };
-  }
+    @Bean
+    CommandLineRunner initUsers(UserManagementRepository repository) {
+        return args -> {
+            repository.save(new UserAccount("alice", "password", "ROLE_USER"));
+            repository.save(new UserAccount("bob", "password", "ROLE_USER"));
+            repository.save(new UserAccount("admin", "password", "ROLE_ADMIN"));
+        };
+    }
 
-  @Bean
-  UserDetailsService userService(UserRepository repo) {
-    return username -> repo.findByUsername(username).asUser();
-  }
+    @Bean
+    UserDetailsService userService(UserRepository repo) {
+        return username -> repo.findByUsername(username).asUser();
+    }
 
-  @Bean
-  SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests(requests -> requests //
-        .requestMatchers("/login").permitAll() //
-        .requestMatchers("/", "/search").authenticated() //
-        .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
-        .requestMatchers(HttpMethod.POST, "/delete/**", "/new-video").authenticated() //
-        .anyRequest().denyAll()); //
-    return http.build();
-  }
+    @Bean
+    SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(requests -> requests //
+                .requestMatchers("/login").permitAll() //
+                .requestMatchers("/", "/search").authenticated() //
+                .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
+                .requestMatchers(HttpMethod.POST, "/delete/**", "/new-video").authenticated() //
+                .anyRequest().denyAll()); //
+        return http.build();
+    }
 }

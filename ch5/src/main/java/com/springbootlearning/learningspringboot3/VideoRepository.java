@@ -7,13 +7,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 
 public interface VideoRepository extends JpaRepository<VideoEntity, Long> {
 
-  List<VideoEntity> findByNameContainsIgnoreCase(String partialName);
+    List<VideoEntity> findByNameContainsIgnoreCase(String partialName);
 
-  List<VideoEntity> findByDescriptionContainsIgnoreCase(String partialDescription);
+    List<VideoEntity> findByDescriptionContainsIgnoreCase(String partialDescription);
 
-  List<VideoEntity> findByNameContainsOrDescriptionContainsAllIgnoreCase(String partialName, String partialDescription);
+    List<VideoEntity> findByNameContainsOrDescriptionContainsAllIgnoreCase(String partialName,
+            String partialDescription);
 
-  @PreAuthorize("#entity.username == authentication.name")
-  @Override
-  void delete(VideoEntity entity);
+    @PreAuthorize("#entity.username == authentication.name")
+    @Override
+    void delete(VideoEntity entity);
 }

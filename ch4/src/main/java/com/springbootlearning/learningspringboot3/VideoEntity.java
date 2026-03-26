@@ -7,41 +7,41 @@ import jakarta.persistence.Id;
 @Entity
 class VideoEntity {
 
-  private @Id @GeneratedValue Long id;
-  private String name;
-  private String description;
+    private @Id @GeneratedValue Long id;
+    private String name;
+    private String description;
 
-  protected VideoEntity() {
-    this(null, null);
-  }
+    protected VideoEntity() {
+        this(null, null);
+    }
 
-  VideoEntity(String name, String description) {
-    this.id = null;
-    this.description = description;
-    this.name = name;
-  }
+    VideoEntity(String name, String description) {
+        this.id = null;
+        this.description = description;
+        this.name = name;
+    }
 
-  public Long getId() {
-    return id;
-  }
+    public Long getId() {
+        return id;
+    }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public String getDescription() {
-    return description;
-  }
+    public String getDescription() {
+        return description;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

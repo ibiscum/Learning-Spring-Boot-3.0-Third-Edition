@@ -26,17 +26,13 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests() //
+        http.authorizeHttpRequests(requests -> requests //
                 .requestMatchers("/login").permitAll() //
                 .requestMatchers("/", "/search").authenticated() //
                 .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
                 .requestMatchers("/admin").hasRole("ADMIN") //
                 .requestMatchers(HttpMethod.POST, "/new-video", "/api/**").hasRole("ADMIN") //
-                .anyRequest().denyAll() //
-                .and() //
-                .formLogin() //
-                .and() //
-                .httpBasic();
+                .anyRequest().denyAll()); //
         return http.build();
     }
 }

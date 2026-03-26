@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.3</version>
+    <version>3.5.13</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.springbootlearning.learningspringboot3</groupId>
   <artifactId>ch2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Chapter 2</name>
+  <name>Chapter 02</name>
   <description>Creating a Web Application with Spring Boot</description>
   <properties>
     <java.version>25</java.version>
@@ -37,7 +37,6 @@
       <groupId>tools.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
       <version>3.1.0</version>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
 
@@ -56,27 +55,33 @@
             <goals>
               <goal>install-node-and-npm</goal>
             </goals>
+            <phase>generate-resources</phase>
           </execution>
+          <!--
           <execution>
             <id>npm install</id>
             <goals>
-              <goal>npm</goal>
+              <goal>pnpm</goal>
             </goals>
           </execution>
+          -->
+          <!--
           <execution>
             <?m2e execute onConfiguration,onIncremental?>
             <id>npx run</id>
             <goals>
               <goal>npx</goal>
             </goals>
-            <phase>generate-resources</phase>
             <configuration>
               <arguments>parcel build</arguments>
             </configuration>
           </execution>
+          -->
+
         </executions>
         <configuration>
           <nodeVersion>v24.14.0</nodeVersion>
+          <npmVersion>11.6.2</npmVersion>
         </configuration>
       </plugin>
     </plugins>

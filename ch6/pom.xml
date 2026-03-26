@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.11</version>
+		<version>3.5.13</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.springbootlearning.learningspringboot3</groupId>
 	<artifactId>ch6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Chapter 6</name>
+	<name>Chapter 06</name>
 	<description>Configuring an Application with Spring Boot</description>
 	<properties>
 		<java.version>25</java.version>
@@ -86,7 +86,6 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>[2.21.1,)</version>
     </dependency>
 	</dependencies>
 

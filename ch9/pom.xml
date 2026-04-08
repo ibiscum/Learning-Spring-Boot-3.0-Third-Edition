@@ -11,7 +11,7 @@
     <groupId>com.springbootlearning.learningspringboot3</groupId>
     <artifactId>ch9</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Chapter 9</name>
+    <name>Chapter 09</name>
     <description>Writing Reactive Web Controllers</description>
     <properties>
         <java.version>25</java.version>

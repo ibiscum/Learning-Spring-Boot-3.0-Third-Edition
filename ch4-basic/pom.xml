@@ -55,6 +55,11 @@
       <artifactId>jackson-core</artifactId>
       <scope>compile</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
+      <version>[10.1.54,)</version>
+    </dependency>
   </dependencies>
 
   <build>

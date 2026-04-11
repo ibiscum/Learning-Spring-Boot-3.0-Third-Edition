@@ -6,7 +6,6 @@ import reactor.test.StepVerifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
-import org.springframework.stereotype.Component;
 
 @Configuration
 public class Startup {

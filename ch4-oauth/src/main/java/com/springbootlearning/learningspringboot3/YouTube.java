@@ -17,10 +17,7 @@ interface YouTube {
     TITLE("title"), //
     RATING("rating");
 
-    private final String type;
-
     Sort(String type) {
-      this.type = type;
     }
   }
 }

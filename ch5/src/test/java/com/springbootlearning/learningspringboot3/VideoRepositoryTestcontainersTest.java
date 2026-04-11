@@ -6,6 +6,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 import java.util.List;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,11 @@ public class VideoRepositoryTestcontainersTest {
   static final PostgreSQLContainer<?> database = //
     new PostgreSQLContainer<>("postgres:9.6.12") //
       .withUsername("postgres");
+
+  @AfterAll
+  static void afterAll() {
+    database.stop();
+  }
 
   static class DataSourceInitializer //
     implements ApplicationContextInitializer<ConfigurableApplicationContext> {

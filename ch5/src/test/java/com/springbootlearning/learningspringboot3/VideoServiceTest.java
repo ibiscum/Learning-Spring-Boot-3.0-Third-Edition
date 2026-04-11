@@ -39,10 +39,11 @@ public class VideoServiceTest {
   }
 
   @Test
+  @SuppressWarnings("unchecked")
   void searchShouldReturnASubset() {
     // given
     VideoEntity video1 = new VideoEntity("alice", "Spring Boot 3 Intro", "Learn the basics!");
-    when(repository.findAll(any(Example.class))).thenReturn(List.of(video1));
+    when(repository.findAll(any(Example.class))).thenReturn((List<VideoEntity>) List.of(video1));
 
     // when
     List<VideoEntity> videos = service.search(new Search("Spring Boot 3"));

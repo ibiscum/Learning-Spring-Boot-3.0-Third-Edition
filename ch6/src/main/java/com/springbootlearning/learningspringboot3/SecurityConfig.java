@@ -17,32 +17,33 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
 
-  interface GrantedAuthorityCnv extends Converter<String, GrantedAuthority> {}
+    interface GrantedAuthorityCnv extends Converter<String, GrantedAuthority> {
+    }
 
-  @Bean
-  @ConfigurationPropertiesBinding
-  GrantedAuthorityCnv converter() {
-    return SimpleGrantedAuthority::new;
-  }
+    @Bean
+    @ConfigurationPropertiesBinding
+    GrantedAuthorityCnv converter() {
+        return SimpleGrantedAuthority::new;
+    }
 
-  @Bean
-  CommandLineRunner initUsers(UserManagementRepository repository, AppConfig appConfig) {
-    return args -> repository.saveAll(appConfig.users());
-  }
+    @Bean
+    CommandLineRunner initUsers(UserManagementRepository repository, AppConfig appConfig) {
+        return args -> repository.saveAll(appConfig.users());
+    }
 
-  @Bean
-  UserDetailsService userService(UserRepository repo) {
-    return username -> repo.findByUsername(username).asUser();
-  }
+    @Bean
+    UserDetailsService userService(UserRepository repo) {
+        return username -> repo.findByUsername(username).asUser();
+    }
 
-  @Bean
-  SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
-    http.authorizeHttpRequests(requests -> requests //
-        .requestMatchers("/login").permitAll() //
-        .requestMatchers("/", "/search").authenticated() //
-        .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
-        .requestMatchers(HttpMethod.POST, "/delete/**", "/new-video").authenticated() //
-        .anyRequest().denyAll()); //
-    return http.build();
-  }
+    @Bean
+    SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
+        http.authorizeHttpRequests(requests -> requests //
+                .requestMatchers("/login").permitAll() //
+                .requestMatchers("/", "/search").authenticated() //
+                .requestMatchers(HttpMethod.GET, "/api/**").authenticated() //
+                .requestMatchers(HttpMethod.POST, "/delete/**", "/new-video").authenticated() //
+                .anyRequest().denyAll()); //
+        return http.build();
+    }
 }

@@ -15,6 +15,7 @@
     <description>Writing Reactive Web Controllers</description>
     <properties>
         <java.version>25</java.version>
+        <thymeleaf.version>3.1.5.RELEASE</thymeleaf.version>
     </properties>
     <dependencies>
         <dependency>

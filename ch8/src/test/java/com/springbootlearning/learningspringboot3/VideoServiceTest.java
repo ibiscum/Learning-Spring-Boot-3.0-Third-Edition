@@ -57,7 +57,6 @@ public class VideoServiceTest {
   }
 
   @Test
-  @SuppressWarnings("unchecked")
   void searchShouldFindVideosByNameOrDescription() {
     // given
     VideoEntity video = new VideoEntity("alice", "Spring Boot 3", "Learn spring basics");
@@ -83,7 +82,7 @@ public class VideoServiceTest {
 
     // then
     assertThat(results).hasSize(1);
-    verify(repository).findAll(any(Example.class));
+    verify(repository).findAll((Example<VideoEntity>) any(Example.class));
   }
 
   @Test

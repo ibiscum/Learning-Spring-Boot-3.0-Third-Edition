@@ -44,7 +44,7 @@ public class VideoServiceTest {
     // given
     VideoEntity expectedVideo = new VideoEntity("alice", "Test Video", "Test Description");
     NewVideo newVideo = new NewVideo("Test Video", "Test Description");
-    given(repository.saveAndFlush(any(VideoEntity.class))).willReturn(expectedVideo);
+    given(repository.saveAndFlush( any(VideoEntity.class))).willReturn(expectedVideo);
 
     // when
     VideoEntity result = service.create(newVideo, "alice");
@@ -53,7 +53,7 @@ public class VideoServiceTest {
     assertThat(result.getUsername()).isEqualTo("alice");
     assertThat(result.getName()).isEqualTo("Test Video");
     assertThat(result.getDescription()).isEqualTo("Test Description");
-    verify(repository).saveAndFlush(any(VideoEntity.class));
+    verify(repository).saveAndFlush( any(VideoEntity.class));
   }
 
   @Test

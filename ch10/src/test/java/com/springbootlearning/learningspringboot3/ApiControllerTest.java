@@ -1,10 +1,12 @@
 package com.springbootlearning.learningspringboot3;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Flux;
@@ -81,5 +83,63 @@ public class ApiControllerTest {
     StepVerifier.create(controller.add(Mono.just(emp2)))
         .expectNext(emp2)
         .verifyComplete();
+  }
+
+  @Test
+  void employeesShouldReturnEmptyFluxWhenNoEmployees() {
+    // given
+    given(repository.findAll()).willReturn(Flux.empty());
+
+    // when
+    Flux<Employee> result = controller.employees();
+
+    // then
+    StepVerifier.create(result)
+        .verifyComplete();
+
+    verify(repository).findAll();
+  }
+
+  @Test
+  void addShouldIgnoreRequestIdAndSaveFreshEmployee() {
+    // given
+    Employee request = new Employee("zoe", "marketing");
+    request.setId(99L);
+    ArgumentCaptor<Employee> captor = ArgumentCaptor.forClass(Employee.class);
+    Employee saved = new Employee("zoe", "marketing");
+    saved.setId(7L);
+    given(repository.save(any(Employee.class))).willReturn(Mono.just(saved));
+
+    // when
+    Mono<Employee> result = controller.add(Mono.just(request));
+
+    // then
+    StepVerifier.create(result)
+        .expectNext(saved)
+        .verifyComplete();
+
+    verify(repository).save(captor.capture());
+    Employee argument = captor.getValue();
+    assertNull(argument.getId());
+    assertEquals("zoe", argument.getName());
+    assertEquals("marketing", argument.getRole());
+  }
+
+  @Test
+  void addShouldPropagateRepositoryError() {
+    // given
+    Employee request = new Employee("fred", "operations");
+    given(repository.save(any(Employee.class))).willReturn(Mono.error(new IllegalStateException("save failure")));
+
+    // when
+    Mono<Employee> result = controller.add(Mono.just(request));
+
+    // then
+    StepVerifier.create(result)
+        .expectErrorMatches(throwable -> throwable instanceof IllegalStateException
+            && throwable.getMessage().equals("save failure"))
+        .verify();
+
+    verify(repository).save(any(Employee.class));
   }
 }

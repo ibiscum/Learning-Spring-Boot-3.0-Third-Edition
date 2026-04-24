@@ -6,16 +6,18 @@ import java.util.stream.Stream;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@Profile("test")
 public class ComplexSecurityConfig {
 
-  @Bean
-  SecurityFilterChain configureSecurity(HttpSecurity http) throws Exception {
+  @Bean("complexSecurityFilterChain")
+  SecurityFilterChain complexSecurityFilterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(requests -> requests //
         .requestMatchers("/resources/**", "/about", "/login").permitAll() //
         .requestMatchers(HttpMethod.GET, "/admin/**").hasRole("ADMIN") //

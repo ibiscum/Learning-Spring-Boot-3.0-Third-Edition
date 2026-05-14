@@ -3,6 +3,7 @@ package com.springbootlearning.learningspringboot3;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.lang.NonNull;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 public interface VideoRepository extends JpaRepository<VideoEntity, Long> {
@@ -16,5 +17,5 @@ public interface VideoRepository extends JpaRepository<VideoEntity, Long> {
 
     @PreAuthorize("#entity.username == authentication.name")
     @Override
-    void delete(VideoEntity entity);
+    void delete(@NonNull VideoEntity entity);
 }
